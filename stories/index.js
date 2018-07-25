@@ -1,16 +1,14 @@
-const chrome = require('sinon-chrome/extensions');
+// const chrome = require('sinon-chrome/extensions');
 
 import { h } from 'preact';
 import { storiesOf } from '@storybook/react';
-import SuggestionList from '../src/saka/Main/Components/SuggestionList/index';
-import OptionsPage from '../src/options/Main';
-import OptionsList from '../src/options/Main/OptionsList';
-import DefaultModeSelection from '../src/options/Main/OptionsList/DefaultModeSelection';
-import OnlyShowSearchBarSelector from '../src/options/Main/OptionsList/OnlyShowSearchBarSelector';
+import SuggestionList from 'src/saka/Main/Components/SuggestionList/index.jsx';
+import DefaultModeSelection from 'src/options/Main/OptionsList/DefaultModeSelection.jsx';
+import OnlyShowSearchBarSelector from 'src/options/Main/OptionsList/OnlyShowSearchBarSelector.jsx';
 
 import { action } from '@storybook/addon-actions';
-import { ctrlChar } from '../src/lib/utils';
-import { colorMap, fadedColorMap } from '../src/lib/colors';
+import { ctrlChar } from 'src/lib/utils';
+import { colorMap, fadedColorMap } from 'src/lib/colors';
 
 global.chrome = chrome;
 
