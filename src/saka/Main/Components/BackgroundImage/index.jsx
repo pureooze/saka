@@ -19,14 +19,7 @@ export default class BackgroundImage extends Component {
   render() {
     const { children } = this.props;
     const { screenshot } = this.state;
-    return (
-      <div
-        id="background-image"
-        style={screenshot && `background-image: url("${screenshot}")`}
-      >
-        {children}
-      </div>
-    );
+    return <div id="background-image">{children}</div>;
   }
 
   // componentWillReceiveProps (nextProps) {

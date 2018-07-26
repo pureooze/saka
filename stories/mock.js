@@ -4,7 +4,8 @@ global.browser = browser;
 global.chrome = chrome;
 browser.flush();
 chrome.runtime.connect.returns({
-  onMessage: { addListener: () => {} }
+  onMessage: { addListener: () => {} },
+  postMessage: () => {}
 });
 
 export default browser;

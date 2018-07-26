@@ -81,6 +81,7 @@ export default class Main extends Component {
     const { setMode, shuffleMode } = this;
 
     if (!isLoading) {
+      console.log('Mode: ', mode);
       switch (mode) {
         case 'mode':
           return (

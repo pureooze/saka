@@ -19,7 +19,7 @@
     "zip": "bestzip",
     "clean": "rimraf dist",
     "test": "karma start karma.conf.js",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -s ./static"
   },
   "repository": {
     "type": "git",

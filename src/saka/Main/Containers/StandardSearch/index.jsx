@@ -358,6 +358,7 @@ export default class extends Component {
     }
 
     // TODO: Rename suggestions and suggestion
+    console.log('Search: ', searchString);
     return (
       <BackgroundImage suggestion={suggestion}>
         <GUIContainer onWheel={this.handleWheel}>

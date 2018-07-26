@@ -29,7 +29,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
 
   defaultConfig.module.rules.push(
     {
-      test: /\.js$/,
+      test: /\.(jsx|js)$/,
       exclude: /node_modules/,
       loaders: ['babel-loader']
     },
