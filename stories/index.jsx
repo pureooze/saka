@@ -180,7 +180,8 @@ storiesOf('GUIContainer', module).add('no suggestions', () => {
       placeholder="Tabs"
       mode="tab"
       showEmptySearchSuggestions="true"
-      searchHistory=""
+      searchHistory={[]}
+      updateSearchHistory={() => []}
     />
   );
 });
