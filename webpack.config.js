@@ -34,21 +34,10 @@ module.exports = function webpackConfig(env) {
       saka: 'src/saka/index.jsx',
       'saka-options': 'src/options/saka-options.jsx'
     },
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          commons: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendor',
-            chunks: 'all'
-          }
-        }
-      }
-    },
     output: {
       path: `${__dirname}/dist`,
-      filename: '[name].js'
-      // sourceMapFilename: '[name].js.map'
+      filename: '[name].js',
+      chunkFilename: '[name].js'
     },
     module: {
       rules: [
