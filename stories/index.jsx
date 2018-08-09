@@ -10,6 +10,8 @@ import PaginationBar from 'src/saka/Main/Components/PaginationBar/index.jsx';
 import * as test from 'msg/client.js';
 import * as Msg from 'msgx/client.js';
 
+sinon.stub(test, 'default').resolves('Testing');
+
 storiesOf('SearchBar', module)
   .add('tab search with no search string', () => {
     const settingsStore = {
@@ -154,6 +156,20 @@ storiesOf('GUIContainer', module).add('no suggestions', () => {
     }
   };
 
+  const suggestions = [
+    {
+      type: 'tab',
+      title: 'example',
+      url: 'http://example.com'
+    },
+    { type: 'tab', title: 'Saka Storybook', url: 'http://localhost:9001' },
+    {
+      type: 'tab',
+      title: 'Saka Github',
+      url: 'https://github.com/lusakasa/saka'
+    }
+  ];
+
   browser.storage.sync.get.returns(settingsStore);
   browser.storage.local.get.returns({});
 
@@ -173,15 +189,16 @@ storiesOf('GUIContainer', module).add('no suggestions', () => {
 
   browser.tabs.query.returns(queryResults);
   // browser.runtime.getBackgroundPage.returns(tabHistory);
-  sinon.stub(test, 'default').resolves('Testing');
 
   return (
     <StandardSearch
-      placeholder="Tabs"
       mode="tab"
-      showEmptySearchSuggestions="true"
+      placeholder="Tabs"
+      setMode={() => {}}
+      shuffleMode={() => {}}
+      showEmptySearchSuggestions={false}
       searchHistory={[]}
-      updateSearchHistory={() => []}
+      updateSearchHistory={() => {}}
     />
   );
 });
