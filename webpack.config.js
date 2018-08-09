@@ -28,16 +28,13 @@ module.exports = function webpackConfig(env) {
     entry: {
       background_page: 'src/background_page/index.js',
       toggle_saka: 'src/content_script/toggle_saka.js',
-      // 'extensions': './src/pages/extensions/index.js',
-      // 'info': './src/pages/info/index.js',
-      // 'options': './src/pages/options/index.js',
       saka: 'src/saka/index.jsx',
       'saka-options': 'src/options/saka-options.jsx'
     },
     output: {
       path: `${__dirname}/dist`,
-      filename: '[name].js',
-      chunkFilename: '[name].js'
+      filename: '[name].js'
+      // sourceMapFilename: '[name].js.map'
     },
     module: {
       rules: [
@@ -81,6 +78,13 @@ module.exports = function webpackConfig(env) {
       ]
     },
     plugins: [
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',
+        filename: 'vendor.js',
+        minChunks: function(module) {
+          return module.context && module.context.includes('node_modules');
+        }
+      }),
       new webpack.optimize.ModuleConcatenationPlugin(),
       new CopyWebpackPlugin([
         {

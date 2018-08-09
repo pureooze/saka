@@ -50,6 +50,11 @@ async function toggleSaka(tabId) {
     } else {
       try {
         await browser.tabs.executeScript(currentTab.id, {
+          file: '/vendor.js',
+          runAt: 'document_start',
+          matchAboutBlank: true
+        });
+        await browser.tabs.executeScript(currentTab.id, {
           file: '/toggle_saka.js',
           runAt: 'document_start',
           matchAboutBlank: true
@@ -96,6 +101,11 @@ async function closeSaka(tab) {
     if (tab.url === browser.runtime.getURL('saka.html')) {
       await browser.tabs.remove(tab.id);
     } else {
+      await browser.tabs.executeScript(tab.id, {
+        file: '/vendor.js',
+        runAt: 'document_start',
+        matchAboutBlank: true
+      });
       await browser.tabs.executeScript(tab.id, {
         file: '/toggle_saka.js',
         runAt: 'document_start',
