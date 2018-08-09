@@ -15,7 +15,6 @@ export default ({
   onButtonClick
 }) => (
   <form className="search-bar-container">
-    <Button mode={mode} onClick={onButtonClick} />
     <Input
       placeholder={placeholder}
       searchString={searchString}
